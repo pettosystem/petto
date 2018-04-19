@@ -2,7 +2,7 @@
 
 /* @var $this yii\web\View */
 
-$this->title = 'Petto System index';
+$this->title = 'Petto System index CHIDOOOO';
 ?>
                 <div class="row">
                     <div class="col-lg-4">
