@@ -66,4 +66,23 @@ return array (
       '@yii/gii' => $vendorDir . '/yiisoft/yii2-gii/src',
     ),
   ),
+  'insolita/yii2-migration-generator' => 
+  array (
+    'name' => 'insolita/yii2-migration-generator',
+    'version' => '2.3.0.0',
+    'alias' => 
+    array (
+      '@insolita/migrik' => $vendorDir . '/insolita/yii2-migration-generator',
+    ),
+    'bootstrap' => 'insolita\\migrik\\Bootstrap',
+  ),
+  'codemix/yii2-localeurls' => 
+  array (
+    'name' => 'codemix/yii2-localeurls',
+    'version' => '1.7.0.0',
+    'alias' => 
+    array (
+      '@codemix/localeurls' => $vendorDir . '/codemix/yii2-localeurls',
+    ),
+  ),
 );

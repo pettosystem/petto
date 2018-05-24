@@ -506,6 +506,49 @@
         "description": "BDD assertion library for PHPUnit"
     },
     {
+        "name": "codemix/yii2-localeurls",
+        "version": "1.7.0",
+        "version_normalized": "1.7.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/codemix/yii2-localeurls.git",
+            "reference": "6f0c49e2bea65c373a6c60f306e96b512c97d436"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/codemix/yii2-localeurls/zipball/6f0c49e2bea65c373a6c60f306e96b512c97d436",
+            "reference": "6f0c49e2bea65c373a6c60f306e96b512c97d436",
+            "shasum": ""
+        },
+        "require": {
+            "yiisoft/yii2": "*"
+        },
+        "time": "2018-02-13T09:07:17+00:00",
+        "type": "yii2-extension",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "codemix\\localeurls\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Michael Härtl",
+                "email": "haertl.mike@gmail.com"
+            }
+        ],
+        "description": "Automatic locale/language management for URLs.",
+        "keywords": [
+            "i18n",
+            "locale",
+            "yii2"
+        ]
+    },
+    {
         "name": "doctrine/instantiator",
         "version": "1.1.0",
         "version_normalized": "1.1.0.0",
@@ -727,6 +770,56 @@
             "stream",
             "uri",
             "url"
+        ]
+    },
+    {
+        "name": "insolita/yii2-migration-generator",
+        "version": "2.3",
+        "version_normalized": "2.3.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/Insolita/yii2-migrik.git",
+            "reference": "455c8dfc035085d56051a16b3cfc5f010662170d"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/Insolita/yii2-migrik/zipball/455c8dfc035085d56051a16b3cfc5f010662170d",
+            "reference": "455c8dfc035085d56051a16b3cfc5f010662170d",
+            "shasum": ""
+        },
+        "require": {
+            "yiisoft/yii2": "*"
+        },
+        "require-dev": {
+            "nesbot/carbon": "*",
+            "vlucas/phpdotenv": "*",
+            "yiisoft/yii2-gii": "*"
+        },
+        "time": "2017-04-29T12:37:47+00:00",
+        "type": "yii2-extension",
+        "extra": {
+            "bootstrap": "insolita\\migrik\\Bootstrap"
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "insolita\\migrik\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "insolita",
+                "email": "donnainsolita@gmail.com"
+            }
+        ],
+        "description": "Set of gii tools for generating  files for migration by schema of table , phpdoc or table data",
+        "keywords": [
+            "extension",
+            "yii2"
         ]
     },
     {

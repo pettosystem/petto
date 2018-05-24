@@ -33,8 +33,13 @@ class ComposerStaticInitca92174f94924455cc80624f2ab12859
         array (
             'phpDocumentor\\Reflection\\' => 25,
         ),
+        'i' => 
+        array (
+            'insolita\\migrik\\' => 16,
+        ),
         'c' => 
         array (
+            'codemix\\localeurls\\' => 19,
             'cebe\\markdown\\' => 14,
         ),
         'W' => 
@@ -120,6 +125,14 @@ class ComposerStaticInitca92174f94924455cc80624f2ab12859
             0 => __DIR__ . '/..' . '/phpdocumentor/reflection-common/src',
             1 => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src',
             2 => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src',
+        ),
+        'insolita\\migrik\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/insolita/yii2-migration-generator',
+        ),
+        'codemix\\localeurls\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/codemix/yii2-localeurls',
         ),
         'cebe\\markdown\\' => 
         array (

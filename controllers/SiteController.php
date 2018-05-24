@@ -5,7 +5,6 @@ namespace app\controllers;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
-use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
@@ -17,7 +16,7 @@ use app\components\AuthHandler;
 class SiteController extends Controller
 {
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function behaviors()
     {
@@ -43,7 +42,7 @@ class SiteController extends Controller
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function actions()
     {
@@ -55,7 +54,15 @@ class SiteController extends Controller
                 'class' => 'yii\captcha\CaptchaAction',
                 'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
             ],
+            'auth' => [
+                'class' => 'yii\authclient\AuthAction',
+                'successCallback' => [$this, 'onAuthSuccess'],
+            ],
         ];
+    }
+
+    public function onAuthSuccess($client) {
+        (new AuthHandler($client))->handle();
     }
 
     /**
@@ -71,7 +78,7 @@ class SiteController extends Controller
     /**
      * Login action.
      *
-     * @return Response|string
+     * @return string
      */
     public function actionLogin()
     {
@@ -83,17 +90,44 @@ class SiteController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
             return $this->goBack();
         }
-
-        $model->password = '';
         return $this->render('login', [
             'model' => $model,
         ]);
     }
 
+    public function actionRegister(){
+        if (!Yii::$app->user->isGuest) {
+            return $this->goHome();
+        }
+
+        $newUser = new User();
+        if ($newUser->load(Yii::$app->request->post()) && $newUser->save() && PettoMailer::send(PettoMailer::TYPE_REGISTRATION, $newUser)) {
+            Yii::$app->session->setFlash('success', Yii::t('app', 'Successfully registered'));
+            return $this->goHome();
+        }
+        return $this->render('register', [
+            'newUser' => $newUser
+        ]);
+    }
+
+    public function actionActivate($user, $token){
+        $userToActivate = User::find()->where(['id' => $user, 'uid' => $token])->one();
+
+        if(empty($userToActivate)){
+            throw new NotFoundHttpException('User not found');
+        }
+        if(!$userToActivate->activate()){
+            Yii::$app->session->setFlash('error', Yii::t('app', 'Can not activate'));
+        }else{
+            Yii::$app->session->setFlash('success', Yii::t('app', 'Successfully activated'));
+        }
+        return $this->goHome();
+    }
+
     /**
      * Logout action.
      *
-     * @return Response
+     * @return string
      */
     public function actionLogout()
     {
@@ -105,7 +139,7 @@ class SiteController extends Controller
     /**
      * Displays contact page.
      *
-     * @return Response|string
+     * @return string
      */
     public function actionContact()
     {
